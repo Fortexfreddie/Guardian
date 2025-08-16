@@ -7,7 +7,7 @@ import RecentActivity from "./RecentActivity";
 
 const Dashboard = () => {
     return (  
-        <section className="px-4 py-16 md:py-24">
+        <section className="px-4 py-16 mt-16">
             <div className="text-center space-y-8">
                 {/* Hero Content */}
                 <div className="space-y-4">
