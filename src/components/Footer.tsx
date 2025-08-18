@@ -2,9 +2,9 @@ import { Shield } from "lucide-react";
 
 const Footer = () => {
     return (  
-        <footer className="container mx-auto bg-gray-100 px-4">
-            <div className="py-12 border-t border-gray-200 backdrop-blur-md">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <footer className="bg-gray-100">
+            <div className="container mx-auto px-4 py-12 border-t border-gray-200 backdrop-blur-md">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                     <div className="space-y-4">
                         <div className="flex items-center space-x-2">
                             <div className="h-8 w-8 shadow-md rounded-2xl bg-gradient-to-br from-gray-900 to-gray-500 flex items-center justify-center">

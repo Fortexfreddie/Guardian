@@ -9,7 +9,7 @@ const Dashboard = () => {
             <Navbar />
             <div className="flex-grow">
                 <main className="container mx-auto">
-                    <div className="flex mt-16">
+                    <div className="lg:flex">
                         <Sidebar />
                         <div className="flex-1">
                             <Outlet />
