@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const navigation = [
     { name: "Blocks", href: "/blocks", icon: Blocks },
     { name: "Transactions", href: "/transactions", icon: ArrowRightLeft },
-    { name: "Accounts", href: "/accounts", icon: Wallet },
+    { name: "Wallets", href: "/wallets", icon: Wallet },
     { name: "Analytics", href: "/analytics", icon: BarChart3 },
     { name: "Developers", href: "/developers", icon: Code },
     { name: "Settings", href: "/settings", icon: Settings },
@@ -18,7 +18,7 @@ const Sidebar = () => {
     const pathname = window.location.pathname;
 
     return (  
-        <aside className="sticky left-0 top-16 h-full w-64 border-r border-gray-200 bg-gray-100 py-10 px-6 backdrop-blur-md">
+        <aside className="sticky left-0 top-16 h-screen w-64 border-r border-gray-200 bg-gray-100 py-10 px-6 backdrop-blur-md">
             <ul className="flex flex-col space-y-2">
                 {navigation.map((nav, index) => {
                     const isActive = pathname === nav.href

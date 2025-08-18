@@ -4,10 +4,11 @@ import Button from "./Button";
 
 type SearchProps = {
   className?: string;
+  placeholder?: string;
   onSubmit?: React.FormEventHandler<HTMLFormElement>;
 }
 
-const SearchBar = ({className="", onSubmit }: SearchProps) => {
+const SearchBar = ({className="", placeholder="", onSubmit }: SearchProps) => {
     const [query, setQuery] = useState("");
     const [isSearching, setIsSearching] = useState(false);
 
@@ -18,7 +19,7 @@ const SearchBar = ({className="", onSubmit }: SearchProps) => {
                 <Search className="h-4 w-4 text-gray-500" />
                 <input
                     type="text"
-                    placeholder="Search by block height, transaction hash, or wallet address..."
+                    placeholder={placeholder || "Search by block height, transaction hash, or wallet address..."}
                     value={query}
                     onChange={(e) => {setQuery(e.target.value); setIsSearching(true)}}
                     className="w-full outline-none placeholder:text-gray-400"
