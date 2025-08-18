@@ -4,8 +4,10 @@ import Button from "./UI/Button";
 import StatsCard from "./StatsCard";
 import QuickLinks from "./QuickLinks";
 import RecentActivity from "./RecentActivity";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+    const navigate = useNavigate();
     return (  
         <section className="px-4 py-16 mt-16">
             <div className="text-center space-y-8">
@@ -33,7 +35,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                        <Button className="w-full sm:w-auto bg-black text-white px-4 py-2">
+                        <Button onClick={() => navigate("/blocks")} className="w-full sm:w-auto bg-black text-white px-4 py-2">
                             Start Exploring
                             <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>

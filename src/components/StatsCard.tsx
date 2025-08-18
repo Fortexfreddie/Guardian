@@ -5,7 +5,7 @@ const statsConfig = [
     {
         title: "Latest Block",
         icon: Blocks,
-        value: "100,000,000",
+        value: "#2,847,392",
         color: "text-blue-600 dark:text-blue-400",
         bgColor: "bg-blue-100 dark:bg-blue-900/20",
     },

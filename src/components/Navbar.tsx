@@ -1,10 +1,10 @@
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Shield, HelpCircle } from "lucide-react";
 import Button from "./UI/Button";
 
 const Navbar = () => {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     return (
         <header className="container mx-auto bg-gray-100">  
@@ -12,7 +12,7 @@ const Navbar = () => {
                 <div className="flex items-center justify-between">
 
                     {/* logo */}
-                    <div className="flex items-center space-x-2">
+                    <div onClick={() => navigate("/")} className="flex items-center space-x-2 cursor-pointer">
                         <div className="p-2 shadow-md rounded-2xl bg-gradient-to-br from-gray-900 to-gray-500 flex items-center justify-center">
                             <Shield className="h-4 w-4 fill-gray-50 text-gray-50" />
                         </div>
