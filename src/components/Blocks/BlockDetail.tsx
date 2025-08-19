@@ -28,12 +28,12 @@ const BlockDetail = () => {
     return (  
         <div className="p-8">
             <div className="space-y-10 mb-8">
-                <div className="flex items-center space-x-4 mb-8">
+                <div className="md:flex items-center space-x-4 mb-8">
                     <Button onClick={() => navigate("/blocks")} className="p-2 border border-gray-300">
                         <ArrowLeft className="h-4 w-4 mr-2" />
                         Back to Blocks
                     </Button>
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-3 mt-4 md:mt-0">
                         <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
                             <Blocks className="h-5 w-5 text-white" />
                         </div>
@@ -55,7 +55,7 @@ const BlockDetail = () => {
                                 </h3>
                             </div>
                             <div className="space-y-4 px-4 pb-4">
-                                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                     <div>
                                         <label className="text-sm font-medium text-gray-500">Block Height</label>
                                         <p className="text-lg font-mono">{blockHeight.toLocaleString()}</p>
@@ -111,7 +111,7 @@ const BlockDetail = () => {
                     </div>
 
                     {/* Navigation  */}
-                    <div className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
                         <div className="bg-white text-gray-800 flex flex-col rounded-xl border border-gray-300 shadow-sm backdrop-blur-md overflow-hidden">
                             <div className="flex items-center gap-2 mb-4 bg-black p-4">
                                 <Blocks className="h-5 w-5 text-blue-600 dark:text-blue-400" />
@@ -120,11 +120,11 @@ const BlockDetail = () => {
                                 </h3>
                             </div>
                             <div className="space-y-3 px-4 pb-4">
-                                <span className="w-full bg-transparent border border-gray-300 py-2 px-4 flex justify-between shadow-sm backdrop-blur-md hover:shadow-md hover:scale-105 transition rounded-full cursor-pointer" onClick={() => navigate(`/blocks/block/${blockHeight}`)}>
+                                <span className="w-full bg-transparent border border-gray-300 py-2 px-4 flex flex-row lg:flex-col xl:flex-row items-center justify-between shadow-sm backdrop-blur-md hover:shadow-md hover:scale-105 transition rounded-full cursor-pointer" onClick={() => navigate(`/blocks/block/${blockHeight}`)}>
                                     <span>Next Block</span>
                                     <span className="text-muted-foreground">#{(blockHeight + 1).toLocaleString()}</span>
                                 </span>
-                                <span className="w-full bg-transparent border border-gray-300 py-2 px-4 flex justify-between shadow-sm backdrop-blur-md hover:shadow-md hover:scale-105 transition rounded-full cursor-pointer" onClick={() => navigate(`/blocks/block/${blockHeight}`)}>
+                                <span className="w-full bg-transparent border border-gray-300 py-2 px-4 flex flex-row lg:flex-col xl:flex-row items-center justify-between shadow-sm backdrop-blur-md hover:shadow-md hover:scale-105 transition rounded-full cursor-pointer" onClick={() => navigate(`/blocks/block/${blockHeight}`)}>
                                     <span>Previous Block</span>
                                     <span className="text-muted-foreground">#{(blockHeight + 1).toLocaleString()}</span>
                                 </span>
