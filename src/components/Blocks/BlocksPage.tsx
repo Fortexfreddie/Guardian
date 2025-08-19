@@ -56,7 +56,7 @@ const BlocksPage = () => {
                 </div>
 
                 {/* Quick Stats */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 items-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 items-center">
                 {statsConfig.map((config, index) => (
                     <div
                     key={index}

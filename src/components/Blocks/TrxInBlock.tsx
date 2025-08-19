@@ -1,4 +1,4 @@
-import { Blocks, Clock, Copy, Users, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, Clock, Copy, Users, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import Skeleton from "../UI/Skeleton";
 import Button from "../UI/Button";
 import { useNavigate } from "react-router-dom";
@@ -13,50 +13,21 @@ const BlockData = [
         previousHash: "0x791fbc6b52a527",
         size: "253.2 KB",
         fees: "2,515,190",
-    },
-    {
-        height: "2847392",
-        hash: "0x791fbc6b52a528",
-        timestamp: "5s ago",
-        transactionCount: "20",
-        validator: "validator_1000",
-        previousHash: "0x791fbc6b52a527",
-        size: "253.2 KB",
-        fees: "2,515,190",
-    },
-    {
-        height: "2847392",
-        hash: "0x791fbc6b52a528",
-        timestamp: "5s ago",
-        transactionCount: "20",
-        validator: "validator_1000",
-        previousHash: "0x791fbc6b52a527",
-        size: "253.2 KB",
-        fees: "2,515,190",
-    },
-    {
-        height: "2847392",
-        hash: "0x791fbc6b52a528",
-        timestamp: "5s ago",
-        transactionCount: "20",
-        validator: "validator_1000",
-        previousHash: "0x791fbc6b52a527",
-        size: "253.2 KB",
-        fees: "2,515,190",
     }
 ];
 
-const BlocksTable = () => {
+const TrxInBlock = () => {
     const loading = false;
     const navigate = useNavigate();
 
     return (  
         <div className="bg-white text-gray-800 flex flex-col rounded-xl border border-gray-300 shadow-sm backdrop-blur-md overflow-hidden">
             <div className="flex items-center gap-2 p-6 bg-black mb-4">
-                <Blocks className="w-5 h-5 text-blue-600" />
+                <ArrowLeft className="w-5 h-5 text-blue-600" />
                 <h3 className="font-semibold text-gray-50">
-                Recent Blocks
+                Transactions in Block
                 </h3>
+                <span className="ml-2 text-sm py-0.5 px-2 rounded-full bg-white">142</span>
             </div>
             <div className="w-full overflow-auto">
                 {
@@ -73,12 +44,12 @@ const BlocksTable = () => {
                         <div>
                             <table className="w-full text-sm caption-bottom">
                                 <thead className="border-b border-gray-300">
-                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Block</th>
-                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Hash</th>
+                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Transaction Hash</th>
+                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">From → To</th>
+                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Amount</th>
+                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Fee</th>
                                     <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Time</th>
-                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Transactions</th>
-                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Validator</th>
-                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Size</th>
+                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Status</th>
                                     <th className=""></th>
                                 </thead>
                                 <tbody>
@@ -114,4 +85,4 @@ const BlocksTable = () => {
     );
 }
  
-export default BlocksTable;
+export default TrxInBlock;
