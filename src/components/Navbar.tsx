@@ -8,7 +8,7 @@ const Navbar = () => {
     const navigate = useNavigate();
     const pathname = window.location.pathname;    
 
-    const isActive = pathname === "/blocks" || pathname === "/transactions" || pathname === "/wallets" || pathname === "/analytics" || pathname === "/developers" || pathname === "/settings" || pathname === "/help";
+    const isActive = pathname === "/blocks" || pathname.startsWith("/blocks" + "/block") || pathname === "/transactions" || pathname.startsWith("/transactions" + "/transaction") || pathname === "/wallets" || pathname === "/analytics" || pathname === "/developers" || pathname === "/settings" || pathname === "/help";
     
     return (
         <header className="bg-gray-100">  

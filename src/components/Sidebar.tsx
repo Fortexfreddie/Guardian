@@ -21,7 +21,7 @@ const Sidebar = () => {
     const SidebarContent = (
         <ul className="flex flex-col space-y-4 lg:space-y-6">
             {navigation.map((nav, index) => {
-                const isActive = pathname === nav.href || pathname.startsWith(nav.href + "/block");
+                const isActive = pathname === nav.href || pathname.startsWith(nav.href + "/block") || pathname.startsWith(nav.href + "/transaction");
                 return (
                     <li key={index} onClick={() => navigate(nav.href)}
                         className={`flex gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer ${ isActive ? "bg-black text-gray-50" : "text-gray-500 hover:bg-gray-700 hover:text-gray-50" }`}>
@@ -36,13 +36,13 @@ const Sidebar = () => {
     return ( 
         <> 
             {/* Desktop Sidebar */}
-            <aside className="hidden lg:block sticky left-0 top-0.5 h-[100vh] w-64 border-r border-gray-200 bg-gray-100 py-10 px-6 backdrop-blur-md">
+            <aside className="hidden lg:block sticky left-0 top-0.5 h-[100vh] w-56 border-r border-gray-200 bg-gray-100 py-10 px-6 backdrop-blur-md">
                 {SidebarContent}
             </aside>
 
             {/* Mobile Sidebar */}
             <aside
-                className={`fixed top-0 left-0 h-[100vh] overflow-y-auto w-64 z-50 border-r border-gray-200 bg-gray-100 py-10 px-6 transform transition-transform duration-300 ease-in-out xl:hidden ${
+                className={`fixed top-0 left-0 h-[100vh] overflow-y-auto w-64 z-50 border-r border-gray-200 bg-gray-100 py-10 px-6 transform transition-transform duration-300 ease-in-out lg:hidden ${
                 sidebarOpen ? "translate-x-0" : "-translate-x-full"
                 }`}
             >

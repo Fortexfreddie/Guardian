@@ -29,7 +29,7 @@ const BlockDetail = () => {
         <div className="p-8">
             <div className="space-y-10 mb-8">
                 <div className="md:flex items-center space-x-4 mb-8">
-                    <Button onClick={() => navigate("/blocks")} className="p-2 border border-gray-300">
+                    <Button onClick={() => navigate("/transactions")} className="p-2 border border-gray-300">
                         <ArrowLeft className="h-4 w-4 mr-2" />
                         Back to Transactions
                     </Button>
@@ -49,7 +49,7 @@ const BlockDetail = () => {
                         {/* Basic Info */}
                         <div className="bg-white text-gray-800 flex flex-col rounded-xl border border-gray-300 shadow-sm backdrop-blur-md overflow-hidden">
                             <div className="flex items-center gap-2 mb-4 bg-black p-4">
-                                <Database className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                                <ArrowRightLeft className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                                 <h3 className="font-semibold text-gray-50">
                                     Transaction Information
                                 </h3>
@@ -101,10 +101,36 @@ const BlockDetail = () => {
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <label className="text-sm font-medium text-gray-500">Validator</label>
-                                    <span className="p-2 bg-gray-100 rounded text-sm font-mono w-fit">
-                                        {mockBlockData.validator}
+                                    <label className="text-sm font-medium text-gray-500">Memo</label>
+                                    <span className="p-2 bg-gray-100 rounded text-sm font-mono w-full">
+                                        Payment for services rendered
                                     </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {/* Addresses */}
+                        <div className="bg-white text-gray-800 flex flex-col rounded-xl border border-gray-300 shadow-sm backdrop-blur-md overflow-hidden">
+                            <div className="flex items-center gap-2 mb-4 bg-black p-4">
+                                <ArrowRightLeft className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                                <h3 className="font-semibold text-gray-50">
+                                    Addresses
+                                </h3>
+                            </div>
+                            <div className="space-y-4 px-4 pb-4">
+                                <div>
+                                    <label className="text-sm font-medium text-gray-500">From</label>
+                                    <div className="flex items-center space-x-2 mt-1 break-all">
+                                        <span className="p-2 bg-gray-100 rounded text-sm font-mono w-full">
+                                            {mockBlockData.hash}
+                                        </span>
+                                        <Button className="p-2 bg-gray-200 hover:bg-gray-300 rounded" onClick={() => navigator.clipboard.writeText(mockBlockData.hash)}>
+                                            <Copy className="h-4 w-4" />
+                                        </Button>
+                                        <Button className="p-2 bg-gray-200 hover:bg-gray-300 rounded" onClick={() => navigate(`/blocks/block/1`)}>
+                                            <ExternalLink className="h-4 w-4" />
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
