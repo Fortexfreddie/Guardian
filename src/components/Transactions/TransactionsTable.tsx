@@ -1,4 +1,4 @@
-import { Blocks, Clock, Copy, Users, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { Blocks, Clock, Copy, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import Skeleton from "../UI/Skeleton";
 import Button from "../UI/Button";
 import { useNavigate } from "react-router-dom";
