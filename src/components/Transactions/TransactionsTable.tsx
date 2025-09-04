@@ -49,6 +49,7 @@ const BlockData = [
 const BlocksTable = () => {
     const loading = false;
     const navigate = useNavigate();
+    const truncateAddress = (address: string) => `${address.slice(0, 8)}...${address.slice(-6)}`;
 
     return (  
         <div className="bg-white text-gray-800 flex flex-col rounded-xl border border-gray-300 shadow-sm backdrop-blur-md overflow-hidden">
@@ -73,24 +74,24 @@ const BlocksTable = () => {
                         <div>
                             <table className="w-full text-sm caption-bottom">
                                 <thead className="border-b border-gray-300">
+                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Transaction Hash</th>
+                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">From → To</th>
+                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Amount</th>
+                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Fee</th>
                                     <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Block</th>
-                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Hash</th>
                                     <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Time</th>
-                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Transactions</th>
-                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Validator</th>
-                                    <th className="h-12 px-4 text-left align-middle font-medium text-gray-500">Size</th>
                                     <th className=""></th>
                                 </thead>
                                 <tbody>
                                     {
                                         BlockData.map((block, index) => (
                                             <tr key={index} className="border-b border-gray-300 transition-colors hover:bg-gray-50">
-                                                <td className="p-4 align-middle text-blue-600"><span onClick={() => navigate(`/blocks/block/${block.height}`)} className="cursor-pointer">#{block.height}</span></td>
                                                 <td className="p-4 align-middle"><span className="flex gap-2 items-center">{block.hash} <span className="cursor-pointer hover:scale-110" onClick={() => navigator.clipboard.writeText(block.hash)}><Copy className="h-3 w-3" /></span></span></td>
+                                                <td className="p-4 align-middle"><span className="flex text-nowrap gap-2 items-center text-xs"><span className="text-blue-600 hover:underline hover:text-blue-700 cursor-pointer">{truncateAddress(block.hash)}</span> → <span className="text-blue-600 hover:underline hover:text-blue-700 cursor-pointer">{truncateAddress(block.hash)}</span></span></td>
+                                                <td className="p-4 align-middle text-nowrap">507.013228 π</td>
+                                                <td className="p-4 align-middle text-nowrap">0.082712 π</td>
+                                                <td className="p-4 align-middle text-blue-600"><span onClick={() => navigate(`/blocks/block/${block.height}`)} className="cursor-pointer">#{block.height}</span></td>
                                                 <td className="p-4 align-middle text-nowrap"><span className="flex gap-2 items-center"><Clock className="h-3 w-3" /> {block.timestamp}</span></td>
-                                                <td className="p-4 align-middle"><span className="px-2.5 py-0.5 bg-gray-200 rounded-full">{block.transactionCount}</span></td>
-                                                <td className="p-4 align-middle"><span className="flex items-center gap-2"><span className="flex items-center gap-2"><Users className="h-3 w-3" /> {block.validator}</span></span></td>
-                                                <td className="p-4 align-middle">{block.size}</td>
                                                 <td className="p-4 align-middle"><ExternalLink className="h-3 w-3" /></td>
                                             </tr>
                                         ))
@@ -99,7 +100,7 @@ const BlocksTable = () => {
                             </table>
                             <div className="flex items-center justify-between p-6 w-full">
                                 <span className="text-sm text-gray-500">
-                                    Showing 1 to 20 of 2,847,392 blocks
+                                    Showing 1 to 25 of 15,847,293 transactions
                                 </span>
                                 <div className="flex items-center space-x-2">
                                     <Button className="border border-gray-300 px-4 py-2 text-black/30 text-sm"><ChevronLeft className="h-4 w-4" /> Previous</Button>
