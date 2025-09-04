@@ -1,5 +1,6 @@
 import { TrendingUp, Copy, Shield, ExternalLink, Vault } from "lucide-react";
 import Skeleton from "../UI/Skeleton";
+import { useNavigate } from "react-router-dom";
 
 const recentTransactions = [
     {
@@ -87,6 +88,7 @@ const exchangeAddresses = [
 ];
 
 const PopularAddresses = () => {
+    const navigate = useNavigate();
     const truncateAddress = (address: string) => `${address.slice(0, 8)}...${address.slice(-6)}`;
     const recentTransactionsIsLoaded = true;
     return (
@@ -120,7 +122,7 @@ const PopularAddresses = () => {
                                         </p>
                                         <div className="flex items-center gap-1.5">
                                             <span className="flex items-center gap-0.5 shadow-sm bg-black text-gray-100 rounded-full px-2.5 py-1 capitalize"><Shield className="w-3 h-3" /> {ex.risk}</span>
-                                            <span className="hover:scale-110"><ExternalLink className="h-4 w-4" /></span>   
+                                            <span className="hover:scale-110" onClick={() => navigate(`/wallets/account/${ex.addy}`)}><ExternalLink className="h-4 w-4" /></span>   
                                         </div>
                                     </div>
                                 </div>
@@ -174,7 +176,7 @@ const PopularAddresses = () => {
                                         </p>
                                         <div className="flex items-center gap-1.5">
                                             <span className="flex items-center gap-0.5 shadow-sm bg-black text-gray-100 rounded-full px-2.5 py-1 capitalize"><Shield className="w-3 h-3" /> low</span>
-                                            <span className="hover:scale-110"><ExternalLink className="h-4 w-4" /></span>   
+                                            <span className="hover:scale-110" onClick={() => navigate(`/wallets/account/${tx.addy}`)}><ExternalLink className="h-4 w-4" /></span>   
                                         </div>
                                     </div>
                                 </div>

@@ -3,12 +3,24 @@ import { Shield, HelpCircle, Menu, X } from "lucide-react";
 import Button from "./UI/Button";
 import { useSidebar } from "../contexts/SidebarContext";
 
+    const activeRoutes = [
+        "/blocks",
+        "/transactions",
+        "/wallets",
+        "/analytics",
+        "/developers",
+        "/settings",
+        "/help"
+    ];
+
 const Navbar = () => {
     const {sidebarOpen, setSidebarOpen} = useSidebar();
     const navigate = useNavigate();
     const pathname = window.location.pathname;    
 
-    const isActive = pathname === "/blocks" || pathname.startsWith("/blocks" + "/block") || pathname === "/transactions" || pathname.startsWith("/transactions" + "/transaction") || pathname === "/wallets" || pathname === "/analytics" || pathname === "/developers" || pathname === "/settings" || pathname === "/help";
+    const isActive = activeRoutes.some(
+        route => pathname === route || pathname.startsWith(route + "/")
+    );
     
     return (
         <header className="bg-gray-100">  

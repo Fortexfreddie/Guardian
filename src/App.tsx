@@ -4,8 +4,9 @@ import Dashboard from "./pages/Dashboard";
 import BlocksPage from "./components/Blocks/BlocksPage";
 import BlockDetail from "./components/Blocks/BlockDetail";
 import TransactionsPage from "./components/Transactions/TransactionsPage";
-import TransactionsDetail from "./components/Transactions/TransactionsDetail";
+import TransactionsDetail from "./components/Transactions/TransactionDetail";
 import WalletsPage from "./components/Wallets/WalletsPage";
+import WalletDetail from "./components/Wallets/WalletDetail";
 
 function App() {
   return (
@@ -24,9 +25,9 @@ function App() {
 
       <Route path="/wallets" element={<Dashboard />}>
         <Route index element={<WalletsPage />} />
-        {/* <Route path="account/:accountId" element={<Account />} /> */}
+        <Route path="account/:accountId" element={<WalletDetail />} />
       </Route>
-      
+
     </Routes>
   );
 }

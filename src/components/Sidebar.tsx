@@ -21,7 +21,7 @@ const Sidebar = () => {
     const SidebarContent = (
         <ul className="flex flex-col space-y-4 lg:space-y-6">
             {navigation.map((nav, index) => {
-                const isActive = pathname === nav.href || pathname.startsWith(nav.href + "/block") || pathname.startsWith(nav.href + "/transaction");
+                const isActive = pathname === nav.href || pathname.startsWith(nav.href + "/");
                 return (
                     <li key={index} onClick={() => navigate(nav.href)}
                         className={`flex gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer ${ isActive ? "bg-black text-gray-50" : "text-gray-500 hover:bg-gray-700 hover:text-gray-50" }`}>
