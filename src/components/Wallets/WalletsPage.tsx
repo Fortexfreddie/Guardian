@@ -1,51 +1,51 @@
-import { ArrowRightLeft, TrendingUp, Clock, DollarSign } from "lucide-react";
+import { Wallet, TrendingUp, Shield, Vault } from "lucide-react";
 import SearchBar from "../UI/SearchBar";
-import TransactionsTable from "./TransactionsTable";
+import PopularAddresses from "./PopularAddresses";
 
 const statsConfig = [
-  {
-    title: "Total Transactions",
-    icon: ArrowRightLeft,
-    value: "15,847,293",
-    color: "text-blue-600",
-    bgColor: "bg-blue-100",
-  },
-  {
-    title: "24h Volume",
-    icon: TrendingUp,
-    value: "2.4M π",
-    color: "text-purple-600",
-    bgColor: "bg-purple-100",
-  },
-  {
-    title: "Avg Confirmation",
-    icon: Clock,
-    value: "5.2s",
-    color: "text-orange-600",
-    bgColor: "bg-orange-100",
-  },
-  {
-    title: "Avg Fee",
-    icon: DollarSign,
-    value: "0.001 π",
-    color: "text-green-600",
-    bgColor: "bg-green-100",
-  },
+    {
+        title: "Active Wallets",
+        icon: Wallet,
+        value: "892,847",
+        color: "text-blue-600",
+        bgColor: "bg-blue-100",
+    },
+    {
+        title: "Total Balance",
+        icon: TrendingUp,
+        value: "45.2B π",
+        color: "text-purple-600",
+        bgColor: "bg-purple-100",
+    },
+    {
+        title: "CEX Total Balance",
+        icon: Vault,
+        value: "2.5B π",
+        color: "text-orange-600",
+        bgColor: "bg-orange-100",
+    },
+    {
+        title: "Core Team Wallets",
+        icon: Shield,
+        value: "2.5B π",
+        color: "text-yellow-600",
+        bgColor: "bg-yellow-100",
+    }
 ];
 
-const TransactionsPage = () => {
+const WalletsPage = () => {
     
     return (
         <div className="p-8">
             <div className="space-y-10 mb-8">
                 <div className="flex items-center space-x-3">
                 <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                    <ArrowRightLeft className="h-5 w-5 text-white" />
+                    <Wallet className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-800">Transaction Explorer</h1>
+                    <h1 className="text-2xl font-bold text-gray-800">Wallet Explorer</h1>
                     <p className="text-gray-500">
-                    Search and analyze Pi Network transactions
+                        Search and analyze Pi Network wallet addresses
                     </p>
                 </div>
                 </div>
@@ -57,7 +57,7 @@ const TransactionsPage = () => {
 
                 {/* Quick Stats */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 items-center">
-                {statsConfig.map((config, index) => (
+                {statsConfig.slice(0,4).map((config, index) => (
                     <div
                     key={index}
                     className="bg-gray-50 text-gray-800 flex flex-col rounded-xl border border-gray-300 p-4 shadow-sm backdrop-blur-md hover:shadow-lg transition-all duration-200 overflow-hidden"
@@ -81,11 +81,11 @@ const TransactionsPage = () => {
                 ))}
                 </div>
 
-                {/* Transactions Table */}
-                <TransactionsTable />
+                {/* PopularbAddresses Table */}
+                <PopularAddresses />
             </div>
         </div>
     );
 };
  
-export default TransactionsPage;
+export default WalletsPage;

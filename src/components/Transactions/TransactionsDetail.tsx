@@ -19,7 +19,7 @@ const mockBlockData = {
     gasLimit: 15000000
 }
 
-const BlockDetail = () => {
+const TransactionDetail = () => {
     const { transactionId } = useParams<{ transactionId: string }>();
     const navigate = useNavigate();
     const blockHeight = transactionId || "";
@@ -202,4 +202,4 @@ const BlockDetail = () => {
     );        
 }
  
-export default BlockDetail;
+export default TransactionDetail;
