@@ -81,7 +81,7 @@ const BlockDetail = () => {
                                 <div>
                                     <label className="text-sm font-medium text-gray-500">Block Hash</label>
                                     <div className="flex items-center space-x-2 mt-1 break-all">
-                                        <span className="p-2 bg-gray-100 rounded text-sm font-mono">
+                                        <span className="p-2 bg-gray-100 rounded text-sm font-mono w-full">
                                             {mockBlockData.hash}
                                         </span>
                                         <Button className="p-2 bg-gray-200 hover:bg-gray-300 rounded" onClick={() => navigator.clipboard.writeText(mockBlockData.hash)}>
@@ -92,7 +92,7 @@ const BlockDetail = () => {
                                 <div>
                                     <label className="text-sm font-medium text-gray-500">Previous Block Hash</label>
                                     <div className="flex items-center space-x-2 mt-1 break-all">
-                                        <span className="p-2 bg-gray-100 rounded text-sm font-mono">
+                                        <span className="p-2 bg-gray-100 rounded text-sm font-mono w-full">
                                             {mockBlockData.previousHash}
                                         </span>
                                         <Button className="p-2 bg-gray-200 hover:bg-gray-300 rounded" onClick={() => navigate(`/blocks/block/1`)}>

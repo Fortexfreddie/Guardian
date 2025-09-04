@@ -90,9 +90,9 @@ const BlocksTable = () => {
                                                 <td className="p-4 align-middle"><span className="flex text-nowrap gap-2 items-center text-xs"><span className="text-blue-600 hover:underline hover:text-blue-700 cursor-pointer">{truncateAddress(block.hash)}</span> → <span className="text-blue-600 hover:underline hover:text-blue-700 cursor-pointer">{truncateAddress(block.hash)}</span></span></td>
                                                 <td className="p-4 align-middle text-nowrap">507.013228 π</td>
                                                 <td className="p-4 align-middle text-nowrap">0.082712 π</td>
-                                                <td className="p-4 align-middle text-blue-600"><span onClick={() => navigate(`/blocks/block/${block.height}`)} className="cursor-pointer">#{block.height}</span></td>
+                                                <td className="p-4 align-middle text-blue-600"><span className="cursor-pointer">#{block.height}</span></td>
                                                 <td className="p-4 align-middle text-nowrap"><span className="flex gap-2 items-center"><Clock className="h-3 w-3" /> {block.timestamp}</span></td>
-                                                <td className="p-4 align-middle"><ExternalLink className="h-3 w-3" /></td>
+                                                <td className="p-4 align-middle"><span onClick={() => navigate(`/transactions/transaction/${block.hash}`)}><ExternalLink className="h-3 w-3" /></span></td>
                                             </tr>
                                         ))
                                     }
