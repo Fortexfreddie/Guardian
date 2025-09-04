@@ -1,7 +1,6 @@
 import Button from "../UI/Button";
-import { Blocks, Database, Clock, Copy, ArrowLeft, ExternalLink, ArrowRightLeft } from "lucide-react";
+import { Blocks, Database, Clock, Copy, ArrowLeft, ExternalLink, ArrowRightLeft, Shield, CheckCircle } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
-import TrxInBlock from "../Blocks/TrxInBlock";
 
 const mockBlockData = {
     height: 2847392,
@@ -127,7 +126,21 @@ const BlockDetail = () => {
                                         <Button className="p-2 bg-gray-200 hover:bg-gray-300 rounded" onClick={() => navigator.clipboard.writeText(mockBlockData.hash)}>
                                             <Copy className="h-4 w-4" />
                                         </Button>
-                                        <Button className="p-2 bg-gray-200 hover:bg-gray-300 rounded" onClick={() => navigate(`/blocks/block/1`)}>
+                                        <Button className="p-2 bg-gray-200 hover:bg-gray-300 rounded" onClick={() => navigate(`/transactions/transaction/1`)}>
+                                            <ExternalLink className="h-4 w-4" />
+                                        </Button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="text-sm font-medium text-gray-500">To</label>
+                                    <div className="flex items-center space-x-2 mt-1 break-all">
+                                        <span className="p-2 bg-gray-100 rounded text-sm font-mono w-full">
+                                            {mockBlockData.hash}
+                                        </span>
+                                        <Button className="p-2 bg-gray-200 hover:bg-gray-300 rounded" onClick={() => navigator.clipboard.writeText(mockBlockData.hash)}>
+                                            <Copy className="h-4 w-4" />
+                                        </Button>
+                                        <Button className="p-2 bg-gray-200 hover:bg-gray-300 rounded" onClick={() => navigate(`/transactions/transaction/1`)}>
                                             <ExternalLink className="h-4 w-4" />
                                         </Button>
                                     </div>
@@ -137,7 +150,48 @@ const BlockDetail = () => {
                     </div>
 
                     {/* Navigation  */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6 items-center">
+                        {/* Risk Analysis */}
+                        <div className="col-span-2 lg:col-span-1 bg-white text-gray-800 flex flex-col rounded-xl border border-gray-300 shadow-sm backdrop-blur-md overflow-hidden">
+                            <div className="flex items-center gap-2 mb-4 bg-black p-4">
+                                <Shield className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                                <h3 className="font-semibold text-gray-50">
+                                    AI Risk Analysis
+                                </h3>
+                            </div>
+                            <div className="space-y-3 px-4 pb-4">
+                                <div className="flex items-center space-x-3">
+                                    <div className="p-2 rounded-lg bg-green-100">
+                                        <CheckCircle className="h-4 w-4 text-green-600" />
+                                    </div>
+                                    <div className="capitalize">
+                                        <p className="font-semibold">low Risk</p>
+                                        <p className="text-sm text-gray-500">AI-powered analysis.</p>
+                                    </div>
+                                </div>
+                                <div className="space-y-2 text-sm">
+                                    <div className="flex justify-between">
+                                        <span className="text-gray-500">Fraud Score:</span>
+                                        <span className="font-medium">0.02/1.00</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span className="text-gray-500">Pattern Match:</span>
+                                        <span className="font-medium text-green-600">Normal</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span className="text-gray-500">Address Reputation:</span>
+                                        <span className="font-medium text-green-600">Good</span>
+                                    </div>
+                                </div>
+                                <div className="p-3 bg-gray-100 rounded-lg">
+                                    <p className="text-xs text-gray-600">
+                                        This transaction appears to be legitimate based on our AI analysis. No suspicious patterns detected.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div className="bg-white text-gray-800 flex flex-col rounded-xl border border-gray-300 shadow-sm backdrop-blur-md overflow-hidden">
                             <div className="flex items-center gap-2 mb-4 bg-black p-4">
                                 <Blocks className="h-5 w-5 text-blue-600 dark:text-blue-400" />
@@ -146,13 +200,14 @@ const BlockDetail = () => {
                                 </h3>
                             </div>
                             <div className="space-y-3 px-4 pb-4">
-                                <span className="w-full bg-transparent border border-gray-300 py-2 px-4 flex flex-row lg:flex-col xl:flex-row items-center justify-between shadow-sm backdrop-blur-md hover:shadow-md hover:scale-105 transition rounded-full cursor-pointer" onClick={() => navigate(`/blocks/block/${blockHeight}`)}>
-                                    <span>Next Block</span>
-                                    <span className="text-muted-foreground">#{(blockHeight + 1).toLocaleString()}</span>
+                                <span className="w-full flex bg-transparent border border-gray-300 py-1 px-4 shadow-sm backdrop-blur-md hover:shadow-md hover:scale-105 transition rounded-full cursor-pointer" onClick={() => navigate(`/blocks/block/${blockHeight}`)}>
+                                    <span className="text-sm">View Sender</span>
                                 </span>
-                                <span className="w-full bg-transparent border border-gray-300 py-2 px-4 flex flex-row lg:flex-col xl:flex-row items-center justify-between shadow-sm backdrop-blur-md hover:shadow-md hover:scale-105 transition rounded-full cursor-pointer" onClick={() => navigate(`/blocks/block/${blockHeight}`)}>
-                                    <span>Previous Block</span>
-                                    <span className="text-muted-foreground">#{(blockHeight + 1).toLocaleString()}</span>
+                                <span className="w-full flex bg-transparent border border-gray-300 py-1 px-4 shadow-sm backdrop-blur-md hover:shadow-md hover:scale-105 transition rounded-full cursor-pointer" onClick={() => navigate(`/blocks/block/${blockHeight}`)}>
+                                    <span className="text-sm">View Reciever</span>
+                                </span>
+                                <span className="w-full flex bg-transparent border border-gray-300 py-1 px-4 shadow-sm backdrop-blur-md hover:shadow-md hover:scale-105 transition rounded-full cursor-pointer" onClick={() => navigate(`/blocks/block/${blockHeight}`)}>
+                                    <span className="text-sm">View Block</span>
                                 </span>
                             </div>
                         </div>
@@ -162,30 +217,21 @@ const BlockDetail = () => {
                             <div className="flex items-center gap-2 mb-4 bg-black p-4">
                                 <Database className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                                 <h3 className="font-semibold text-gray-50">
-                                    Quick Stats
+                                    Technical Details
                                 </h3>
                             </div>
-                            <div className="space-y-3 px-4 pb-4">
+                            <div className="space-y-2 px-4 pb-4">
                                 <div className="flex justify-between">
-                                    <span className="text-gray-500">Confirmations</span>
-                                    <span className="font-semibold">1,247</span>
+                                    <span className="text-gray-500">Gas Price:</span>
+                                    <span className="font-semibold">20 Gwei</span>
                                 </div>
                                 <div className="flex justify-between">
-                                    <span className="text-gray-500">Block Reward</span>
-                                    <span className="font-semibold">50.0 π</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Gas Utilization</span>
-                                    <span className="font-semibold">59.6%</span>
+                                    <span className="text-gray-500">Position in Block:</span>
+                                    <span className="font-semibold">47</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                {/* Transactions in Block */}
-                <div className="mt-8">
-                    <TrxInBlock />
                 </div>
             </div>
         </div>
